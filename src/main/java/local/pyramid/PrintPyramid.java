@@ -20,6 +20,47 @@ public class PrintPyramid {
         this.showLine = showLine;
     }
 
+    public void execute2(){
+        int full =  (showLine * 2) - 1;
+        for(int i = 0; i < showLine; i++){
+            //計算每層需要多少顆星星
+            int starts = (2 * i) +1;
+            //計算做編需要多少空白
+            int leftBlanks = (full - starts)/2;
+            String show = " ".repeat(leftBlanks)+"*".repeat(starts);
+            System.out.println(show);
+
+        }
+    }
+
+    public void execute3(){
+        if(showLine%2==0){
+            System.out.println("要奇數才可以列印");
+            throw new IllegalArgumentException("要奇數才可以列印");
+        }
+
+        int full =  (showLine + 1) /2;
+        int fullStarts = full;
+        System.out.println("full = "+full);
+        for(int i = 0; i < showLine; i++){
+
+            if(i < full){
+                //計算每層需要多少顆星星
+                int starts = i+1;
+                //計算做編需要多少空白
+                int leftBlanks = (full - starts);
+                String show = " ".repeat(leftBlanks)+"*".repeat(starts);
+                System.out.println(show);
+            } else {
+                fullStarts --;
+                int leftBlanks = (full - fullStarts);
+                String show = " ".repeat(leftBlanks)+"*".repeat(fullStarts);
+                System.out.println(show);
+            }
+
+        }
+    }
+
     public void execute(){
         int totalCol = (showLine-1) * 2 + 1;
 
